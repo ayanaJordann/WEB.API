@@ -1,0 +1,19 @@
+import requests
+
+
+API_KEY_GEOCODE = '40d1649f-0493-4b70-98ba-98533de7710b'
+
+def geocode(address):
+    geocoder_request = f'https://static-maps.yandex.ru/v1?apikey={API_KEY_GEOCODE}' \
+                       f'&geocode={geocode}&format=json'
+
+    response = requests.get(geocoder_request)
+    if response:
+        # Преобразуем ответ в json-объект
+        json_response = response.json()
+
+    else:
+        raise RuntimeError()
+        """Ошибка выполнения запроса:
+        {request}
+        Http статус:, response.status_code,  response.reason,)"""
